@@ -1,0 +1,21 @@
+
+
+  <div style="text-align:center">
+    <button (click)="addToPeople()">Add People</button>
+    <button (click)="addToAnimals()">Add Animal</button>
+    <button (click)="getAll()">Get All</button>
+    <button (click)="addItems()">Add Dexie</button>
+    <div>
+      {{all | json}}
+    </div>
+  </div>
+
+
+
+  <!-- Footer -->
+  <footer>
+
+  </footer>
+
+
+<router-outlet></router-outlet>
