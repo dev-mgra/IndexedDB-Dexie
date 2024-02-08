@@ -78,6 +78,24 @@ export class AppComponent implements OnInit {
     return Promise.all(promises);
   }
 
+  public addToHouses() {
+    const houses = [
+      { name: "Stark", street: "labrador", town:"Stuttgat" },
+      { name: "Stark", street: "labrador", town:"Stuttgat" },
+      { name: "Stark", street: "labrador", town:"Stuttgat" },
+      { name: "Stark", street: "labrador", town:"Stuttgat" },
+      { name: "Stark", street: "labrador", town:"Stuttgat" }
+    ];
+
+    let promises = houses.map(a => {
+      console.log(a);
+      this.dbService.currentStore = "houses";
+      return this.dbService.add(a);
+    });
+
+    return Promise.all(promises);
+  }
+
   public getAll() {
     this.dbService.getAll().then(result => {
       this.all = result;
