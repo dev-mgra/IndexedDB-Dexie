@@ -11,9 +11,11 @@ export class AppComponent implements OnInit {
   title = 'indexed-db';
   all = null;
   public db;
+  public db2;
 
   constructor(private dbService: NgxIndexedDBService ) {
     this.db = new Dexie("MyFriendDB");
+    this.db2 = new Dexie("MyTodos");
   }
 
   async ngOnInit() {
@@ -27,6 +29,22 @@ export class AppComponent implements OnInit {
     this.db.version(1).stores({
       friends: '++id,name,age'
     });
+    this.db2.version(1).stores({
+      myToDos: '++id,todo,state'
+    });
+  }
+  // dexie add new list
+  public async addItems2() {
+    const id = await this.db2.myToDos.add({todo: "wash car", state: 1});
+    console.log("Got id: " + id);
+
+    // Query
+    const todos = await this.db2.myToDos
+      .where('state')
+      .between(1,2)
+      .toArray();
+
+    console.log("Found todos: " + JSON.stringify(todos, null, 2));
   }
   // dexie add new list
   public async addItems() {
