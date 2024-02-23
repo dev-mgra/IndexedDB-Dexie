@@ -13,3 +13,4 @@ https://www.npmjs.com/package/ngx-indexed-db
 https://codesandbox.io/s/e5qpq?file=/src/app/app.module.ts
 
 # IndexedDB-Dexie
+refer to db2 MyTodos
