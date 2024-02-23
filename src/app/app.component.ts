@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
       myToDos: '++id,todo,state'
     });
   }
-  // dexie add new list
+  // dexie add new list item myToDos
   public async addItems2() {
     const id = await this.db2.myToDos.add({todo: "wash car", state: 1});
     console.log("Got id: " + id);
